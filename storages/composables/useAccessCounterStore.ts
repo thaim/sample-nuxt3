@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 
+// ブラウザの各種ストレージを用いて永続化するカウンター。
 export const useAccessCounterStore = defineStore("accessCounter", {
   state: () => {
     const count = ref(0);
@@ -12,5 +13,9 @@ export const useAccessCounterStore = defineStore("accessCounter", {
       this.count++;
     },
   },
-  persist: true,
+  persist: {
+    // storage: persistedState.localStorage,
+    // storage: persistedState.sessionStorage,
+    storage: persistedState.cookiesWithOptions({}),
+  },
 });
