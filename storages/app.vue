@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const counterStore = useCounterStore();
 const { increment } = counterStore;
-const { count } = storeToRefs(counterStore);
 </script>
 
 <template>
